@@ -4,12 +4,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh "git pull origin main"
+                sh "gradle build"
+                sh "./gradlew bootRun"
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh "gradle test"
+            }
+        }
+        stage('Validate') {
+            steps {
+                echo 'Validate....'
             }
         }
         stage('Deploy') {
