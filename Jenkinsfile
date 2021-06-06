@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh "git pull origin main"
                   withGradle {
-   				 sh './gradlew build'
+   				 sh 'gradle build'
                  sh "./gradlew bootRun"
  		 			}	
             }
