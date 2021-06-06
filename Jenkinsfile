@@ -1,14 +1,11 @@
 pipeline {
   agent any
-
     stages {
         stage('Build') {
             steps {
                 sh "git pull origin main"
-                  withGradle {
-   				 sh 'gradle build'
+   				 sh './gradlew clean build'
                  sh "./gradlew bootRun"
- 		 			}	
             }
         }
         stage('Test') {
@@ -25,7 +22,6 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
-        }
 
   }
 }
