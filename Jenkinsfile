@@ -4,13 +4,13 @@ pipeline {
         stage('Build') {
             steps {
                 sh "git pull origin main"
-   				sh 'bash ./gradlew clean build'
-                sh "bash ./gradlew bootRun"
+                echo 'Building...'
+                echo 'Ejecutando el jar...'
             }
         }
         stage('Test') {
             steps {
-                sh "gradle test"
+                echo 'Testeing...'
             }
         }
         stage('Validate') {
