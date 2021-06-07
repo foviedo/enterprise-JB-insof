@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh "git pull origin main"
-                echo 'Building...'
-                echo 'Ejecutando el jar...'
+   				sh 'bash ./gradlew clean build'
+                sh "bash ./gradlew bootRun"
             }
         }
         stage('Test') {
